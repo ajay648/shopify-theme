@@ -1,0 +1,84 @@
+.promotion-grid-item__inner {
+    display: flex;
+flex-wrap: wrap;
+    gap: 64px;
+    color: #e66;
+    text-decoration: none;
+}
+ /* .image__img {
+    width: 160px;
+    box-shadow: 13px -21px 0px 9px gray;
+} */
+ .promotion-grid-item__promotion {
+text-align: center;
+background-color: #fff;
+width: fit-content;
+margin: 0 auto; /* Center-align content horizontally */
+}
+
+.Promotion-topbar {
+text-align: center;
+}
+
+.promotion-grid-item__container {
+background-color: #f2f0f0;
+padding: 10px;
+}
+
+.product-grid-item {
+display: flex;
+flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+gap: 32px; /* Adjusted for better spacing */
+padding: 20px;
+color: #e66;
+text-decoration: none;
+justify-content: center; /* Center items on smaller screens */
+}
+
+@media screen and (min-width: 1200px) {
+.promotion-grid-item__inner {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+  color: #e66;
+  text-decoration: none;
+}
+}
+
+@media screen and (min-width: 950px) and (max-width: 1199px) {
+.promotion-grid-item__inner {
+  display: grid;
+  gap: 32px; /* Reduced gap for medium screens */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+  color: #e66;
+  text-decoration: none;
+}
+}
+
+@media screen and (max-width: 949px) {
+.promotion-grid-item__inner {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px; /* Reduced gap for smaller screens */
+  color: #e66;
+  text-decoration: none;
+}
+}
+
+@media screen and (max-width: 750px) {
+.product-grid-item {
+  gap: 16px; /* Smaller gap for very small screens */
+  padding: 10px; /* Reduced padding */
+}
+
+.promotion-grid-item__promotion {
+  width: 100%; /* Ensure the content spans the full width on small screens */
+  padding: 10px;
+}
+
+.promotion-grid-item__container {
+  padding: 5px; /* Reduce container padding for better space management */
+}
+}
+
+/* multifeature image end  */

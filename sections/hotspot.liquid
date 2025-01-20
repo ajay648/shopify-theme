@@ -1,0 +1,279 @@
+<div class=" page-width hotspot-container">
+  <!-- Left Part: Background Image with Hotspots -->
+  <div class="hotspot-section">
+    {% if section.settings.background_image != blank %}
+      <img
+        src="{{ section.settings.background_image | image_url: width: 1200 ,height}}"
+        alt="Background"
+        class="background-image"
+      >
+    {% else %}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+    {% for block in section.blocks %}
+      {% if block.settings.hotspot_product != blank %}
+        <div
+          class="hotspot"
+          data-product-title="{{ block.settings.hotspot_product.title }}"
+          data-product-price="{% if block.settings.hotspot_product.price !=blank %}{{ block.settings.hotspot_product.price | money }} {% else %}{% render 'price', placeholder: placeholder, show_compare_at_price: true %}{% endif %}"
+          data-product-url="{{ block.settings.hotspot_product.url }}"
+          data-product-image="{{ block.settings.hotspot_product.featured_image | image_url }}"
+          style="position: absolute; top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%;"
+          data-index="{{ forloop.index0 }}"
+        >
+          <button class="hotspot-button" data-index="{{ forloop.index0 }}">{{ block.settings.hotspot_label }}</button>
+        </div>
+      {% else %}
+        {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Right Part: Product Details -->
+  <div class="product-info-section">
+    <div id="product-info">
+      <img
+        id="product-image"
+        src=""
+        alt="Product Image"
+        style="display: none; max-width: 40%; height: auto; margin-bottom: 20px;"
+      >
+      <h2 id="product-title">{{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}</h2>
+      <p id="product-price"></p>
+      <a id="product-link" href="#" target="_blank" style="display: none;">View Product</a>
+      <div class="dots-container"></div>
+      {% for block in section.blocks %}
+        <span class="dot" data-index="{{ forloop.index0 }}"></span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .dots-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dot.active {
+    background-color: #007bff;
+  }
+
+  .hotspot-button {
+    background: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .hotspot-button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hotspots = Array.from(document.querySelectorAll('.hotspot'));
+    const buttons = Array.from(document.querySelectorAll('.hotspot-button'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const titleElement = document.getElementById('product-title');
+    const priceElement = document.getElementById('product-price');
+    const linkElement = document.getElementById('product-link');
+    const imageElement = document.getElementById('product-image');
+
+    // Function to update product info and active state
+    function updateProductInfo(index) {
+      const hotspot = hotspots[index];
+      if (hotspot) {
+        const productTitle = hotspot.getAttribute('data-product-title');
+        const productPrice = hotspot.getAttribute('data-product-price');
+        const productUrl = hotspot.getAttribute('data-product-url');
+        const productImage = hotspot.getAttribute('data-product-image');
+
+        // Update product info
+        titleElement.textContent = productTitle;
+        priceElement.textContent = `Price: ${productPrice}`;
+        linkElement.href = productUrl;
+        linkElement.style.display = 'inline-block';
+        imageElement.src = productImage;
+        imageElement.style.display = 'block';
+
+        // Update active state for dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+
+        // Update active state for buttons
+        buttons.forEach((button, i) => {
+          button.classList.toggle('active', i === index);
+        });
+      }
+    }
+
+    // Add click event listeners to buttons
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', function () {
+        updateProductInfo(index);
+      });
+    });
+
+    // Add click event listeners to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function () {
+        updateProductInfo(index);
+      });
+    });
+
+    // Initialize with the first product
+    updateProductInfo(0);
+  });
+</script>
+
+<style>
+          /* Container */
+    .hotspot-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      height: 100%;
+      background-color: #E0E0E0;
+    }
+
+    /* Left Section: Background with Hotspots */
+    .hotspot-section {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #ccc;
+    }
+
+    .background-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .hotspot {
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+
+    .hotspot-button {
+      background: #000;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Right Section: Product Details */
+    .product-info-section {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #product-info {
+      text-align: center;
+    }
+
+    #product-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #product-price {
+      font-size: 18px;
+      color: #555;
+    }
+
+    #product-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    #product-image {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hotspot",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot",
+      "settings": [
+        {
+          "type": "text",
+          "id": "hotspot_label",
+          "label": "Hotspot Label",
+          "default":"Dots"
+        },
+
+        {
+          "type": "product",
+          "id": "hotspot_product",
+          "label": "Select Product",
+
+        },
+        {
+          "type": "number",
+          "id": "hotspot_x",
+          "label": "Position X (%)",
+          "default": 50
+        },
+        {
+          "type": "number",
+          "id": "hotspot_y",
+          "label": "Position Y (%)",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hotspot",
+
+    }
+  ]
+}
+{% endschema %}

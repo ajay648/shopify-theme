@@ -1,0 +1,145 @@
+{{ 'promotion-grid-item.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class=" page-width section-{{ section.id }}-padding promotion-grid-item__container">
+  <div class="Promotion-topbar">
+    <h3>
+      {% if section.settings['promotion-heading'] != blank %}
+        {{ section.settings['promotion-heading'] }}
+      {% endif %}
+    </h3>
+    <p>
+      {% if section.settings['promotion-content'] != blank %}
+        {{ section.settings['promotion-content'] }}
+      {% endif %}
+    </p>
+  </div>
+  <div class="promotion-grid-item__inner">
+    {% for block in section.blocks %}
+      <div class="promotion-grid-item__promotion">
+        <a href="{{ block.settings.promotion_link }}" class="product-grid-item">
+          <div class="promotion-grid-item__promotion-container">
+            <span class="promotion-grid-item__promotion-type fs-accent">
+              {% if block.settings.promotion_type != blank %}
+                {{ block.settings.promotion_type }}
+              {% endif %}
+            </span>
+            <div class="promotion-grid-item__promotion-discount ff-heading">
+              <span class="promotion-grid-item__amount-value">
+                <span class="promotion-grid-item__amount">
+                  <span class="promotion-grid-item__sale-amount fs-heading-1-base">
+                    {% if block.settings.discount_value != blank %}
+                      <strong>{{ block.settings.discount_value }}</strong>
+                    {% endif %}
+                  </span>
+                </span>
+                <span class="promotion-grid-item__unit-centered">
+                  <span>%</span>
+                </span>
+              </span>
+            </div>
+            <p class="promotion-grid-item__promotion-text ff-body">
+              {% if block.settings.promotion_text != blank %}
+                {{ block.settings.promotion_text }}
+              {% endif %}
+            </p>
+          </div>
+          <div class="promotion-grid-item__image">
+            <div class="image aspect-ratio">
+              {% if block.settings.promotion_image != blank %}
+                <img
+                  alt="{{ block.settings.promotion_text }}"
+                  class="image__img"
+                  loading="lazy"
+                  src="{{ block.settings.promotion_image|img_url}}"
+                >
+              {% else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .image__img{
+    height: 200px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "promotion-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "promotion-heading",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "promotion-content",
+      "label": "Description"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "promotion",
+      "name": "promotion",
+      "settings": [
+        {
+      "type": "text",
+      "id": "promotion_text",
+      "label": "Promotion Text",
+      "default": "Supernova Pocket Card"
+    },
+    {
+      "type": "text",
+      "id": "promotion_type",
+      "label": "Promotion Type",
+      "default": "Save"
+    },
+    {
+      "type": "range",
+      "id": "discount_value",
+      "label": "Discount Value",
+      "default": 50,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "type": "image_picker",
+      "id": "promotion_image",
+      "label": "Promotion Image"
+    },
+    {
+      "type": "url",
+      "id": "promotion_link",
+      "label": "Promotion Link",
+      "default": "/collections/all"
+    }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "promotion-grid",
+
+    }
+  ]
+}
+{% endschema %}

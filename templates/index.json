@@ -1,0 +1,728 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_tXVCbV": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_EGHJQ8": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stationery for Every Milestone and Memory</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_xP6Ata": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_JQ733M": {
+          "type": "button",
+          "settings": {
+            "button_label": "Birthday",
+            "button_link": "#",
+            "button_style_secondary": true,
+            "background-color": "#ffffff"
+          }
+        },
+        "button_Ch3pTx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Holiday",
+            "button_link": "#",
+            "button_style_secondary": true,
+            "background-color": "#ffffff"
+          }
+        },
+        "button_Cg9fBP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Wedding",
+            "button_link": "#",
+            "button_style_secondary": true,
+            "background-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EGHJQ8",
+        "text_xP6Ata",
+        "button_JQ733M",
+        "button_Ch3pTx",
+        "button_Cg9fBP"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Joy01S_2048x_f9cbc39b-7c05-4fd5.jpg",
+        "custome_button_label": "Browse all",
+        "button_link": "shopify://collections",
+        "button_style_secondary": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_CgrMGr": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_HeGFAC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "birthday"
+          }
+        },
+        "featured_collection_iVqzJB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "friendship"
+          }
+        },
+        "featured_collection_KhKTWT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "holiday"
+          }
+        },
+        "featured_collection_DDk4HP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "new-year"
+          }
+        },
+        "featured_collection_qfdbJy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "wedding"
+          }
+        },
+        "featured_collection_YCq4Hk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "friendship"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_HeGFAC",
+        "featured_collection_iVqzJB",
+        "featured_collection_KhKTWT",
+        "featured_collection_DDk4HP",
+        "featured_collection_qfdbJy",
+        "featured_collection_YCq4Hk"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "countdown_banner_bVXtp6": {
+      "type": "Countdown-Banner",
+      "settings": {
+        "banner_heading": "Annual Sale",
+        "banner_text": "Markdowns on all designs. Grab them before they disappear!",
+        "button_link": "",
+        "button_text": "Shop sale",
+        "timer_year": 2025,
+        "timer_month": "february",
+        "timer_day": 6,
+        "timer_hour": 5,
+        "timer_minute": 36,
+        "hide_timer": false
+      }
+    },
+    "custom_featured_section_pPRAaT": {
+      "type": "custom-featured-section",
+      "settings": {
+        "left_tagline": "FEATURED",
+        "left_title": "Cash Cards",
+        "left_button_text": "EXPLORE",
+        "left_image": "shopify://shop_images/cash-cards-v1-tall.jpg",
+        "left_image_alt": "Cash Cards",
+        "left_image_width": 70,
+        "right_tagline": "NEW",
+        "right_title": "Geometric Patterns",
+        "right_button_text": "EXPLORE",
+        "right_image": "shopify://shop_images/laser-cut-mauve-v2-tall.jpg",
+        "right_image_alt": "Geometric Patterns"
+      }
+    },
+    "custom_featured_section_63Ei3j": {
+      "type": "custom-featured-section",
+      "settings": {
+        "left_tagline": "Signature",
+        "left_title": "Clamshell Cards",
+        "left_button_text": "EXPLORE",
+        "left_image": "shopify://shop_images/Clamshell-4.jpg",
+        "left_image_alt": "Cash Cards",
+        "left_image_width": 30,
+        "right_tagline": "Just in",
+        "right_title": "Birthday Cards",
+        "right_button_text": "EXPLORE",
+        "right_image": "shopify://shop_images/Birthday-5.jpg",
+        "right_image_alt": "Geometric Patterns"
+      }
+    },
+    "image_banner_8eyrKN": {
+      "type": "image-banner",
+      "blocks": {
+        "text_kprDHx": {
+          "type": "text",
+          "settings": {
+            "text": "Season's Greetings",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading_7FzFKh": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Holiday Cards</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "buttons_7A8WAG": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Explore",
+            "button_link_1": "shopify://collections/holiday",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_kprDHx",
+        "heading_7FzFKh",
+        "buttons_7A8WAG"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/holiday-cards.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "desktop_content_position": "top-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "brand_collection_9YPzz3": {
+      "type": "Brand-collection",
+      "blocks": {
+        "quick_link_nzncpW": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Birthday",
+            "url": "shopify://collections/birthday"
+          }
+        },
+        "quick_link_PT6BAc": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Shop all",
+            "url": "shopify://collections"
+          }
+        },
+        "quick_link_U9hL3P": {
+          "type": "quick_link",
+          "settings": {
+            "title": "New year",
+            "url": "shopify://collections/new-year"
+          }
+        },
+        "quick_link_bQyfd9": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Holiday",
+            "url": "shopify://collections/holiday"
+          }
+        },
+        "quick_link_4x7r8t": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Friendship",
+            "url": "shopify://collections/friendship"
+          }
+        },
+        "quick_link_Ea3Hyy": {
+          "type": "quick_link",
+          "settings": {
+            "title": "New year",
+            "url": "shopify://collections/new-year"
+          }
+        },
+        "quick_link_7g7rPH": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Holiday",
+            "url": "shopify://collections/holiday"
+          }
+        },
+        "quick_link_H4QVhT": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Friendship",
+            "url": "shopify://collections/friendship"
+          }
+        },
+        "quick_link_T3HAmd": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Wedding",
+            "url": "shopify://collections/wedding"
+          }
+        },
+        "quick_link_cjQ3PU": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Birthday",
+            "url": "shopify://collections/birthday"
+          }
+        },
+        "quick_link_4LNjMH": {
+          "type": "quick_link",
+          "settings": {
+            "title": "Shop all",
+            "url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "quick_link_nzncpW",
+        "quick_link_PT6BAc",
+        "quick_link_U9hL3P",
+        "quick_link_bQyfd9",
+        "quick_link_4x7r8t",
+        "quick_link_Ea3Hyy",
+        "quick_link_7g7rPH",
+        "quick_link_H4QVhT",
+        "quick_link_T3HAmd",
+        "quick_link_cjQ3PU",
+        "quick_link_4LNjMH"
+      ],
+      "settings": {
+        "heading": "Popular Styles",
+        "slides_to_show": 10,
+        "slides_to_scroll": 1,
+        "autoplay": true,
+        "autoplay_speed": 3000
+      }
+    },
+    "multicolumn_FQM9Td": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7HTLqw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-01-02_18.38.05_-_A_refined_and_creative_logo_icon_for_Chapter_Verse_featuring_a_balance_of_text_and_imagery._Use_a_sleek_serif_font_for_the_text_with_an_ampersan.webp",
+            "title": "Responsibly Produced",
+            "text": "<p>Eco-conscious elegance: Crafting beauty responsibly</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Fc8hBH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-01-02_18.38.05_-_A_refined_and_creative_logo_icon_for_Chapter_Verse_featuring_a_balance_of_text_and_imagery._Use_a_sleek_serif_font_for_the_text_with_an_ampersan.webp",
+            "title": "Inspired Designs",
+            "text": "<p>Where your words shine bright and your moments matter.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_iKnyEf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DALL_E_2025-01-02_18.38.05_-_A_refined_and_creative_logo_icon_for_Chapter_Verse_featuring_a_balance_of_text_and_imagery._Use_a_sleek_serif_font_for_the_text_with_an_ampersan.webp",
+            "title": "Hand-assembled",
+            "text": "<p>Artistry meets craftsmanship, right at home in the United States.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_7HTLqw",
+        "column_Fc8hBH",
+        "column_iKnyEf"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_XMbAUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XnCtEy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our stationery is a canvas for your individuality",
+            "heading_size": "h2"
+          }
+        },
+        "text_tW4bzi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This store is a demonstration of a greeting card and stationery brand using the Cornerstone Shopify theme. Products and imagery for this demo graciously provided by.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_QmXnER": {
+          "type": "button",
+          "settings": {
+            "button_label": "About us",
+            "button_link": "shopify://pages/about-us",
+            "button_style_secondary": false,
+            "background-color": "#8d5dce"
+          }
+        },
+        "button_mcRkg6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our process",
+            "button_link": "shopify://pages/about-us",
+            "button_style_secondary": true,
+            "background-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XnCtEy",
+        "text_tW4bzi",
+        "button_QmXnER",
+        "button_mcRkg6"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/HelloOtherHalf01Sa_2048x_26e6a76.jpg",
+        "custome_button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-15394cfd-4885-4975-9657-b7438582edb8",
+        "color_scheme": "scheme-15394cfd-4885-4975-9657-b7438582edb8",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    },
+    "promotion_grid_eXxGda": {
+      "type": "promotion-grid",
+      "blocks": {
+        "promotion_tBCcPT": {
+          "type": "promotion",
+          "settings": {
+            "promotion_text": "Supernova",
+            "promotion_type": "Save",
+            "discount_value": 50,
+            "promotion_image": "shopify://shop_images/TVT01934-2.jpg",
+            "promotion_link": "shopify://products/rimjhim"
+          }
+        },
+        "promotion_89TNdF": {
+          "type": "promotion",
+          "settings": {
+            "promotion_text": "Shine Pocket Card",
+            "promotion_type": "Save",
+            "discount_value": 50,
+            "promotion_image": "shopify://shop_images/TVT01356.webp",
+            "promotion_link": "shopify://products/ira"
+          }
+        },
+        "promotion_bEnNwq": {
+          "type": "promotion",
+          "settings": {
+            "promotion_text": "Supernova Pocket Card",
+            "promotion_type": "Save",
+            "discount_value": 50,
+            "promotion_image": "shopify://shop_images/JC2203W2.jpg",
+            "promotion_link": "shopify://products/jamun"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_tBCcPT",
+        "promotion_89TNdF",
+        "promotion_bEnNwq"
+      ],
+      "settings": {
+        "promotion-heading": "Last chance. Save extra.",
+        "promotion-content": "<p>Grab them before they're gone! Use code: 'lastchance' to take an additional 25% off</p>"
+      }
+    },
+    "feature_colletion_slider_KUYfCb": {
+      "type": "Feature-colletion-slider",
+      "settings": {
+        "selected_collection": "wedding",
+        "selected_all_collection": "shopify://collections/wedding",
+        "shopp_all": "Shop all",
+        "text-color": "#242833",
+        "button-bg-color": "#8d5dce",
+        "title": "New arrival",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "wedding",
+        "products_to_show": 9,
+        "columns_desktop": 3,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "before_after_slider_tH4Npd": {
+      "type": "before-after-slider",
+      "settings": {
+        "color_scheme": "",
+        "bf_image": "shopify://shop_images/After_-_Desktop_a6b79a4e-dcad-47_1.jpg",
+        "af_image": "shopify://shop_images/Before_-_Desktop.jpg",
+        "show_badge": false,
+        "grayscale_before": true,
+        "show_content": true,
+        "ba_heading": "",
+        "ba_content": ""
+      }
+    },
+    "hotspot_jHktPj": {
+      "type": "hotspot",
+      "blocks": {
+        "hotspot_ENtYfM": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_label": "1",
+            "hotspot_product": "blue-striped",
+            "hotspot_x": 74,
+            "hotspot_y": 39
+          }
+        },
+        "hotspot_ke4iiY": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_label": "2",
+            "hotspot_product": "brown-black-earring",
+            "hotspot_x": 22,
+            "hotspot_y": 65
+          }
+        },
+        "hotspot_gJ7CHE": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_label": "3",
+            "hotspot_product": "brown-chekered",
+            "hotspot_x": 14,
+            "hotspot_y": 35
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_ENtYfM",
+        "hotspot_ke4iiY",
+        "hotspot_gJ7CHE"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/Before_-_Desktop.jpg"
+      }
+    },
+    "image_with_slide_up_XCc7XN": {
+      "type": "image-with-slide-up",
+      "blocks": {
+        "content_block_wq7gd8": {
+          "type": "content_block",
+          "settings": {
+            "title": "What is Lorem Ipsum?",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
+            "image": "shopify://shop_images/Before_-_Desktop.jpg",
+            "alt_text": "Alt text for the image."
+          }
+        },
+        "content_block_dhit6i": {
+          "type": "content_block",
+          "settings": {
+            "title": "What is Lorem Ipsum?",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
+            "image": "shopify://shop_images/After_-_Desktop_a6b79a4e-dcad-47.jpg",
+            "alt_text": "Alt text for the image."
+          }
+        },
+        "content_block_RPB3tE": {
+          "type": "content_block",
+          "settings": {
+            "title": "What is Lorem Ipsum?",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since",
+            "image": "shopify://shop_images/DALL_E_2025-01-02_18.38.05_-_A_refined_and_creative_logo_icon_for_Chapter_Verse_featuring_a_balance_of_text_and_imagery._Use_a_sleek_serif_font_for_the_text_with_an_ampersan.webp",
+            "alt_text": "Alt text for the image."
+          }
+        }
+      },
+      "block_order": [
+        "content_block_wq7gd8",
+        "content_block_dhit6i",
+        "content_block_RPB3tE"
+      ],
+      "settings": {}
+    },
+    "173590457955be186c": {
+      "type": "apps",
+      "blocks": {
+        "easyreviews_star_rating_Be6wiz": {
+          "type": "shopify://apps/easyreviews/blocks/star_rating/1341251b-09d7-46f3-ba6a-e732a50e97a5",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "easyreviews_star_rating_Be6wiz"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1735990853774d23c2": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_rTr3Wp": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        },
+        "judge_me_reviews_review_widget_homepage_gWkbzX": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_rTr3Wp",
+        "judge_me_reviews_review_widget_homepage_gWkbzX"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "newsletter_gkqTU9": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_jzcymN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up and Save",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_XLdfi4": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Sign up for emails, offers and updates. New members can enjoy 10% off their first order.</p>"
+          }
+        },
+        "email_form_6GLm64": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "paragraph_VpeadB": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jzcymN",
+        "paragraph_XLdfi4",
+        "email_form_6GLm64",
+        "paragraph_VpeadB"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_with_text_tXVCbV",
+    "collection_list_CgrMGr",
+    "countdown_banner_bVXtp6",
+    "custom_featured_section_pPRAaT",
+    "custom_featured_section_63Ei3j",
+    "image_banner_8eyrKN",
+    "brand_collection_9YPzz3",
+    "multicolumn_FQM9Td",
+    "image_with_text_XMbAUP",
+    "promotion_grid_eXxGda",
+    "feature_colletion_slider_KUYfCb",
+    "before_after_slider_tH4Npd",
+    "hotspot_jHktPj",
+    "image_with_slide_up_XCc7XN",
+    "173590457955be186c",
+    "1735990853774d23c2",
+    "newsletter_gkqTU9"
+  ]
+}

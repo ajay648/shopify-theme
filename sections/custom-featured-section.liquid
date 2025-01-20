@@ -1,0 +1,238 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="page-width section-{{ section.id }}-padding main-card-container">
+  <!-- Left Section -->
+  <div class="left-card" style="flex: 0 0 {{ section.settings.left_image_width }}%;">
+    <div class="text-section">
+      <p class="tagline">
+        {% if section.settings.left_tagline != blank %}
+          {{ section.settings.left_tagline }}
+        {% endif %}
+      </p>
+      <h2 class="title">
+        {% if section.settings.left_title != blank %}
+          {{ section.settings.left_title }}
+        {% endif %}
+      </h2>
+      {% if section.settings.left_button_text != blank %}
+        <button class="explore-button">{{ section.settings.left_button_text }}</button>
+      {% endif %}
+    </div>
+    <div class="left-image-section">
+      {% if section.settings.left_image != blank %}
+        <img
+          src="{{ section.settings.left_image | image_url: width: 600, height: 600 }}"
+          alt="{{ section.settings.left_title | escape }}"
+          class="card-image"
+        >
+      {% else %}
+        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div class="right-card">
+    <div class="text-section">
+      <p class="tagline">
+        {% if section.settings.right_tagline != blank %}
+          {{ section.settings.right_tagline }}
+        {% endif %}
+      </p>
+      <h2 class="title">
+        {% if section.settings.right_title != blank %}
+          {{ section.settings.right_title }}
+        {% endif %}
+      </h2>
+      {% if section.settings.right_button_text != blank %}
+        <button class="explore-button">{{ section.settings.right_button_text }}</button>
+      {% endif %}
+    </div>
+    <div class="right-image-section">
+      {% if section.settings.right_image != blank %}
+        <img
+          src="{{ section.settings.right_image | img_url: '600x600' }}"
+          alt="{{ section.settings.right_image_alt }}"
+          class="card-image"
+        >
+      {% else %}
+        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+    .main-card-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+    margin-top:54px;
+  }
+
+  .left-card,
+  .right-card {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    hight:auto;
+
+  }
+  .card-image {
+    width: 100%;
+    height: 75vh;
+    transition: transform 0.3s ease;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .controls button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .left-card,
+    .right-card {
+      flex: 1 1 100%;
+    }
+
+    .card-image {
+      width: 100%;
+      hight:100vh;
+    }
+  }
+    .text-section {
+  	text-align: center;
+  	margin-bottom: -100px;
+  	position: relative;
+  }
+
+  .text-section p.tagline {
+    margin: 0; /* Removes extra margin above and below the tagline */
+    font-size: 1rem; /* Ensures the text isn't too large */
+    line-height: 1.2; /* Adjusts spacing within the text lines */
+  }
+
+  .text-section h2.title {
+    margin: 5px 0; /* Adds minimal spacing above and below the title */
+    font-size: 1.5rem; /* Adjusts font size for better readability */
+    line-height: 1.2; /* Reduces spacing between lines in multi-line titles */
+  }
+
+  .text-section button.explore-button {
+    margin-top: 10px; /* Adds minimal space above the button */
+    padding: 8px 16px; /* Ensures the button has a consistent size */
+    font-size: 1rem; /* Adjusts the button text size */
+    line-height: 1; /* Ensures button text is compact */
+  }
+</style>
+
+{% schema %}
+{
+  "name": "custom-feature-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_tagline",
+      "label": "Left Card Tagline",
+      "default": "FEATURED"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left Card Title",
+      "default": "Cash Cards"
+    },
+    {
+      "type": "text",
+      "id": "left_button_text",
+      "label": "Left Card Button Text",
+      "default": "EXPLORE"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Card Image"
+    },
+    {
+      "type": "text",
+      "id": "left_image_alt",
+      "label": "Left Card Image Alt Text",
+      "default": "Cash Cards"
+    },
+    {
+      "type": "range",
+      "id": "left_image_width",
+      "label": "Left Image Width (%)",
+      "default": 70,
+      "min": 30,
+      "max": 70,
+      "step": 5
+    },
+    {
+      "type": "text",
+      "id": "right_tagline",
+      "label": "Right Card Tagline",
+      "default": "NEW"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right Card Title",
+      "default": "Geometric Patterns"
+    },
+    {
+      "type": "text",
+      "id": "right_button_text",
+      "label": "Right Card Button Text",
+      "default": "EXPLORE"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Card Image"
+    },
+    {
+      "type": "text",
+      "id": "right_image_alt",
+      "label": "Right Card Image Alt Text",
+      "default": "Geometric Patterns"
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom-feature-section",
+
+    }
+  ]
+}
+{% endschema %}

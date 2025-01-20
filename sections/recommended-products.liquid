@@ -1,0 +1,152 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="page-width recommended-product">
+  <div class="">
+    <h3>{{ section.settings.heading }}</h3>
+
+    <ul class="shopify-tabs">
+      {% for tab in section.blocks %}
+        <li class="{% if forloop.first %}current{% endif %}" data-tab="tab-{{ tab.id }}">
+          {{ tab.settings.tab_title }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% for tab in section.blocks %}
+    <div id="tab-{{ tab.id }}" class="shopify-tab-content {% if forloop.first %}current{% endif %}">
+      <div class="related-products-wrapper">
+        {% assign collection = collections[tab.settings.collection] %}
+        {% if collection and collection.products.size > 0 %}
+          <div class="grid product-grid grid--4-col-desktop grid--2-col-tablet-down">
+            {% for product in collection.products limit: 4 %}
+              <div class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'square',
+                  show_secondary_image: true,
+                  show_vendor: true,
+                  show_rating: true
+                %}
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>No products found in the selected collection.</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('ul.shopify-tabs > li').click(function () {
+      var tab_id = $(this).attr('data-tab');
+
+      $(this).parent().find('li').removeClass('current');
+      $('.shopify-tab-content').removeClass('current');
+
+      $(this).addClass('current');
+      $("#" + tab_id).addClass('current');
+    });
+  });
+</script>
+<style>
+  ul.shopify-tabs {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+  }
+
+  ul.shopify-tabs > li {
+      background: none;
+      color: #333;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+  }
+
+  ul.shopify-tabs > li.current {
+      background: #f0f0f0;
+      color: #333;
+  }
+
+  .shopify-tab-content {
+      display: none;
+      background: #f0f0f0;
+      padding: 15px;
+  }
+
+  .shopify-tab-content.current {
+      display: block;
+  }
+
+  .related-product-list {
+      display: flex;
+      gap: 137px;
+  }
+</style>
+{% schema %}
+{
+  "name": "recommended-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Recommended Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Tab Name"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Related Products Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "recommended-products",
+    }
+  ]
+}
+{% endschema %}

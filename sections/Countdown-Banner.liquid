@@ -1,0 +1,222 @@
+<div class="section-inner">
+  <div class="countdown-banner__inner">
+    <div class="countdown-banner__content">
+      <div class="countdown-banner__bar animation--container">
+        <!-- Heading -->
+        <div class="countdown-banner__bar-item countdown-banner__bar-item--heading">
+          <h4 class="ff-heading fs-heading-4-base">
+            {{ section.settings.banner_heading | escape }}
+          </h4>
+        </div>
+
+        <!-- Timer -->
+        <div class="countdown-banner__bar-item countdown-banner__bar-item--timer">
+          <div class="countdown-timer countdown-timer--small active" data-countdown-timer="">
+            <script type="application/json" data-timer-settings="">
+              {
+                "year": {{ section.settings.timer_year }},
+                "month": "{{ section.settings.timer_month | escape }}",
+                "day": {{ section.settings.timer_day }},
+                "hour": {{ section.settings.timer_hour }},
+                "minute": {{ section.settings.timer_minute }},
+                "shopTimezone": "{{ shop.timezone }}",
+                "timeZoneSelection": "shop",
+                "hideTimerOnComplete": {{ section.settings.hide_timer | json }}
+              }
+            </script>
+
+            <div class="countdown-timer__inner">
+              <div class="countdown-timer__item">
+                <div class="countdown-timmer__amount ff-heading" data-days=""></div>
+                <div class="countdown-timer__type fs-accent">Days</div>
+              </div>
+              <div class="countdown-timer__item">
+                <div class="countdown-timmer__amount ff-heading" data-hours=""></div>
+                <div class="countdown-timer__type fs-accent">Hours</div>
+              </div>
+              <div class="countdown-timer__item">
+                <div class="countdown-timmer__amount ff-heading" data-minutes=""></div>
+                <div class="countdown-timer__type fs-accent">Minutes</div>
+              </div>
+              <div class="countdown-timer__item">
+                <div class="countdown-timmer__amount ff-heading" data-seconds=""></div>
+                <div class="countdown-timer__type fs-accent">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text and Button -->
+        <div class="countdown-banner__bar-item countdown-banner__bar-item--text">
+          <div class="countdown-banner__bar-text rte">
+            <p>{{ section.settings.banner_text | escape }}</p>
+          </div>
+          <div class="button-wrapper countdown-banner__button" data-alignment="none">
+            <a class="btn btn--solid btn--small" href="{{ section.settings.button_link }}">
+              <span>{{ section.settings.button_text }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const countdownElements = document.querySelectorAll("[data-countdown-timer]");
+
+    countdownElements.forEach((timerElement) => {
+      try {
+        const settings = JSON.parse(
+          timerElement.querySelector("[data-timer-settings]").textContent
+        );
+
+        const monthMap = {
+          january: 0,
+          february: 1,
+          march: 2,
+          april: 3,
+          may: 4,
+          june: 5,
+          july: 6,
+          august: 7,
+          september: 8,
+          october: 9,
+          november: 10,
+          december: 11,
+        };
+
+        const targetDate = new Date(
+          settings.year,
+          monthMap[settings.month.toLowerCase()],
+          settings.day,
+          settings.hour,
+          settings.minute
+        ).getTime();
+
+        const timerInner = timerElement.querySelector(".countdown-timer__inner");
+
+        const updateTimer = () => {
+          const now = new Date().getTime();
+          const timeLeft = targetDate - now;
+
+          if (timeLeft <= 0) {
+            timerInner.style.display = "none";
+            if (settings.hideTimerOnComplete) {
+              timerElement.style.display = "none";
+            }
+            return;
+          }
+
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          timerInner.querySelector("[data-days]").textContent = days;
+          timerInner.querySelector("[data-hours]").textContent = hours;
+          timerInner.querySelector("[data-minutes]").textContent = minutes;
+          timerInner.querySelector("[data-seconds]").textContent = seconds;
+        };
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+      } catch (error) {
+        console.error("Countdown Timer Error:", error);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Countdown Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "Annual Sale"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "Markdowns on all designs. Grab them before they disappear!"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop sale"
+    },
+    {
+      "type": "number",
+      "id": "timer_year",
+      "label": "Year",
+      "default": 2030
+    },
+    {
+      "type": "select",
+      "id": "timer_month",
+      "label": "Month",
+      "options": [
+        { "value": "january", "label": "January" },
+        { "value": "february", "label": "February" },
+        { "value": "march", "label": "March" },
+        { "value": "april", "label": "April" },
+        { "value": "may", "label": "May" },
+        { "value": "june", "label": "June" },
+        { "value": "july", "label": "July" },
+        { "value": "august", "label": "August" },
+        { "value": "september", "label": "September" },
+        { "value": "october", "label": "October" },
+        { "value": "november", "label": "November" },
+        { "value": "december", "label": "December" }
+      ],
+      "default": "september"
+    },
+    {
+      "type": "number",
+      "id": "timer_day",
+      "label": "Day",
+      "default": 10
+    },
+    {
+      "type": "number",
+      "id": "timer_hour",
+      "label": "Hour",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "timer_minute",
+      "label": "Minute",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_timer",
+      "label": "Hide Timer on Completion",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown-banner",
+
+    }
+  ]
+}
+{% endschema %}

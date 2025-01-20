@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_jTdXBB": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "link_list_jm4key": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "top-bar-menu"
+          }
+        },
+        "brand_information_fLgFDd": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "text_yj9Bzc": {
+          "type": "text",
+          "settings": {
+            "heading": "Customer Service",
+            "subtext": "<p>Questions? We're here for you<br/><strong>Monday - Saturday: </strong>10am - 6pm ET.<br/><strong>Sunday: </strong>12pm - 6pm ET.</p><p></p><p></p>",
+            "phoneicon": "shopify://shop_images/Untitled_1.jpg",
+            "contact": "+1 (416) 555-5555",
+            "emailicon": "shopify://shop_images/Untitled.jpg",
+            "email": "support@shopdemo.com",
+            "locationicon": "shopify://shop_images/images.jpg",
+            "location": "123 Queen Street"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_jTdXBB",
+        "link_list_jm4key",
+        "brand_information_fLgFDd",
+        "text_yj9Bzc"
+      ],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "newsletter_enable": true,
+        "newsletter_heading": "Newsletter",
+        "enable_follow_on_shop": true,
+        "show_social": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

@@ -1,0 +1,126 @@
+{{ 'image-with-slide-up.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width image-content-section">
+  <div class="content-container">
+    {% for block in section.blocks %}
+      <div class="content" data-index="{{ forloop.index }}">
+        <h2>{{ block.settings.title }}</h2>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="image-container">
+    {% for block in section.blocks %}
+      <img
+        class="slide_up_image"
+        data-index="{{ forloop.index }}"
+        src="{{ block.settings.image | image_url }}"
+        alt="{{ block.settings.alt_text }}"
+      >
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const contentSections = document.querySelectorAll(".content");
+  const images = document.querySelectorAll(".slide_up_image");
+  let currentIndex = 1;
+  let interval;
+
+  // Function to update the active state
+  function updateActive(index) {
+    contentSections.forEach((section) => section.classList.remove("active"));
+    images.forEach((img) => (img.style.opacity = "0"));
+
+    const activeContent = document.querySelector(`.content[data-index="${index}"]`);
+    const activeImage = document.querySelector(`.slide_up_image[data-index="${index}"]`);
+
+    if (activeContent) activeContent.classList.add("active");
+    if (activeImage) activeImage.style.opacity = "1";
+  }
+
+  // Hover event listener
+  contentSections.forEach((section) => {
+    section.addEventListener("mouseenter", () => {
+      const index = section.dataset.index;
+      currentIndex = index; // Update the current index for auto-rotation
+      updateActive(index);
+      clearInterval(interval); // Pause auto-rotation on hover
+    });
+
+    section.addEventListener("mouseleave", () => {
+      startAutoUpdate(); // Resume auto-rotation on mouse leave
+    });
+  });
+
+  // Auto-update function
+  function startAutoUpdate() {
+    interval = setInterval(() => {
+      currentIndex = (currentIndex % contentSections.length) + 1;
+      updateActive(currentIndex);
+    }, 3000); // Change every 3 seconds
+  }
+
+  // Initialize auto-update
+  startAutoUpdate();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Image with Slide-Up",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Content Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description for the content block."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Alt text for the image."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Slide-Up",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,185 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width section-{{ section.id }}-padding slick-slider-section">
+  {% if section.settings.heading != blank %}
+    <h2 class="slick-slider-heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="slick-slider">
+    {% for block in section.blocks %}
+      {% if block.type == 'quick_link' %}
+        <a href="{{ block.settings.url }}" class="quick-links__link">
+          <span>{{ block.settings.title }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+      .slick-slider-section{
+        padding:20px;
+      }
+      .slick-slider {
+      margin: 20px auto;
+      width: 90%;
+    }
+
+     .slick-slider .slick-prev, .slick-next {
+    	font-size: 0;
+    	line-height: 0;
+    	position: absolute;
+    	top: 50%;
+    	display: block;
+    	width: 20px;
+    	height: 20px;
+    	padding: 0;
+    	-webkit-transform: translate(0, -50%);
+    	-ms-transform: translate(0, -50%);
+    	transform: translate(0, -50%);
+    	cursor: pointer;
+    	color: blue;
+    	border: none;
+    	outline: none;
+    	background: #1e6dc1d9;
+    }
+      .slick-next {
+    	font-size: 0;
+    	line-height: 0;
+    	position: absolute;
+    	top: 50%;
+    	display: block;
+    	width: 20px;
+    	height: 20px;
+    	padding: 0;
+    	-webkit-transform: translate(0, -50%);
+    	-ms-transform: translate(0, -50%);
+    	transform: translate(0, -50%);
+    	cursor: pointer;
+    	color: blue;
+    	border: none;
+    	outline: none;
+    	background: #1e6dc1d9;
+    }
+
+    h2.slick-slider-heading {
+        text-align: center;
+    }
+
+    .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+      color: transparent;
+      outline: none;
+      background: blue;
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+    $('.slick-slider').slick({
+      infinite: true,
+      slidesToShow: {{ section.settings.slides_to_show }},
+      slidesToScroll: {{ section.settings.slides_to_scroll }},
+      autoplay: {{ section.settings.autoplay }},
+      autoplaySpeed: {{ section.settings.autoplay_speed }},
+      arrows: true,
+      prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+      nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "brand-collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Popular Styles"
+    },
+    {
+      "type": "range",
+      "id": "slides_to_show",
+      "label": "Slides to Show",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "type": "range",
+      "id": "slides_to_scroll",
+      "label": "Slides to Scroll",
+      "default": 1,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "default": 3000,
+      "min": 1000,
+      "max": 6000,
+      "step": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quick_link",
+      "name": "quick_link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slide Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "brand-collections",
+
+    }
+  ]
+}
+{% endschema %}

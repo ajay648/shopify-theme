@@ -1,0 +1,149 @@
+.side-bar-btn {
+    display: flex;
+    gap: 18px;
+  flex-wrap: wrap
+}
+
+@media screen and (max-width: 750px) {
+  .side-bar-btn {
+    gap: 18px;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+}
+
+@media screen and (min-width: 990px) {
+  .side-bar-btn {
+    gap: 18px;
+  flex-wrap: wrap
+}
+}
+
+.browse-all-bt {
+    margin-left: 80px;
+    padding-top: 40px;
+}
+
+/* Countdown Banner Styles */
+
+@media screen and (max-width: 750px) {
+  .countdown-banner__bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  .countdown-banner__bar-item {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  .countdown-banner__bar-item--text{
+    display: flex;
+  }
+  .countdown-banner__bar-text.rte {
+    width: 63%;
+}
+}
+
+.countdown-banner__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #66173b;
+  padding: 0px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+}
+@media screen and (min-width: 950px){
+.countdown-banner__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10rem;
+}
+
+.countdown-banner__bar-item {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+}
+.countdown-banner__bar-item--heading h4 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.countdown-timer__inner {
+  display: flex;
+  gap: 15px;
+}
+
+.countdown-timer__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-timmer__amount {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.countdown-timer__type {
+  font-size: 1.875rem;
+  color: #6fff;
+}
+
+.countdown-banner__bar-text p {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.button-wrapper a {
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.button-wrapper a:hover {
+  background-color: #0056b3;
+}
+
+.countdown-banner__bar-text.rte p {
+	color: #ffff;
+	font-size: 15px;
+}
+/*contact us start  */
+.contact-us-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.contact-image-block {
+    width: 34%;
+}
+.contact_form_class{
+  width:60%;
+}
+
+@media screen and (min-width: 750px) {
+  .contact-us-section {
+    display: flex;
+    flex-wrap:wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+}
+
+/*contact us start end  */
+
+
